@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tesla OAuth Callback</title>
+</head>
+<body>
+    <h1>Tesla OAuth</h1>
+    <p>Authorization callback endpoint online.</p>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        if (params.has("code")) {
+            document.body.insertAdjacentHTML(
+                "beforeend",
+                "<p>Authorization code received.</p>"
+            );
+        }
+
+        if (params.has("error")) {
+            document.body.insertAdjacentHTML(
+                "beforeend",
+                "<p>Authorization error received.</p>"
+            );
+        }
+    </script>
+</body>
+</html>
